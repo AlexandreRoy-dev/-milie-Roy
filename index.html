@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <title>Services ER - Tenue de livres par Émilie Roy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        // Un rose blush sur mesure si besoin, mais nous utiliserons principalement rose-400 de Tailwind
+                        blush: {
+                            light: '#fdf2f4',
+                            DEFAULT: '#fb7185', // équivalent à rose-400
+                            dark: '#e11d48',    // équivalent à rose-600
+                        },
+                        stone: {
+                            50: '#fafafa',
+                            100: '#f5f5f4',
+                            900: '#1c1917',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
+</head>
+
+<body class="antialiased bg-stone-50 text-stone-900 font-sans selection:bg-rose-200 selection:text-stone-900">
+
+<header class="fixed w-full top-0 z-50 bg-stone-50/90 backdrop-blur-md border-b border-stone-200 transition-all duration-300" x-data="{ mobileNavOpen: false }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#">
+                        <img src="serviceser.svg" alt="Services ER" class="h-40 w-auto">
+                    </a>
+                </div>
+
+                <nav class="hidden md:flex space-x-10 items-center">
+                    <a href="#services" class="text-sm font-medium tracking-wide text-stone-600 hover:text-rose-400 transition-colors uppercase">Services</a>
+                    <a href="#a-propos" class="text-sm font-medium tracking-wide text-stone-600 hover:text-rose-400 transition-colors uppercase">À propos</a>
+                    <a href="#avantages" class="text-sm font-medium tracking-wide text-stone-600 hover:text-rose-400 transition-colors uppercase">Avantages</a>
+                    <a href="#contact" class="px-6 py-2.5 bg-stone-900 text-white text-sm font-medium tracking-wide uppercase hover:bg-rose-400 transition-colors duration-300">Contactez-moi</a>
+                </nav>
+
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileNavOpen = !mobileNavOpen" class="text-stone-900 hover:text-rose-400 focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div x-show="mobileNavOpen" style="display: none;" class="md:hidden absolute top-24 left-0 w-full bg-stone-50 border-b border-stone-200 shadow-xl" @click.away="mobileNavOpen = false">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#services" @click="mobileNavOpen = false" class="block px-3 py-4 text-base font-medium text-stone-900 border-b border-stone-200">Services</a>
+                <a href="#a-propos" @click="mobileNavOpen = false" class="block px-3 py-4 text-base font-medium text-stone-900 border-b border-stone-200">À propos</a>
+                <a href="#avantages" @click="mobileNavOpen = false" class="block px-3 py-4 text-base font-medium text-stone-900 border-b border-stone-200">Avantages</a>
+                <a href="#contact" @click="mobileNavOpen = false" class="block px-3 py-4 text-base font-medium text-rose-500">Contactez-moi</a>
+            </div>
+        </div>
+    </header>
+
+<section class="relative pt-32 lg:pt-40 pb-20 bg-stone-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                
+                <div class="max-w-2xl">
+                    <div class="inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium text-rose-600 bg-rose-100/50 mb-8 border border-rose-100">
+                        <span class="flex w-2 h-2 rounded-full bg-rose-500 mr-2 animate-pulse"></span>
+                        Votre partenaire de confiance
+                    </div>
+
+                    <h1 class="text-5xl lg:text-6xl font-serif text-stone-900 tracking-tight leading-[1.1] mb-6">
+                        La tranquillité d'esprit pour vos <span class="text-rose-400 italic">finances</span>.
+                    </h1>
+                    
+                    <p class="text-lg lg:text-xl text-stone-600 mb-10 leading-relaxed font-light">
+                        Déléguez votre tenue de livres et libérez-vous du stress administratif. Un service sur mesure, précis et efficace pour les travailleurs autonomes et PME.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                        <a href="#contact" class="inline-flex justify-center items-center px-8 py-4 bg-rose-400 text-white font-medium rounded shadow-lg shadow-rose-400/30 hover:bg-rose-500 hover:shadow-rose-500/40 transition-all duration-200">
+                            Discuter de vos besoins
+                        </a>
+                        <a href="#services" class="inline-flex justify-center items-center px-8 py-4 bg-white text-stone-700 font-medium rounded border border-stone-200 shadow-sm hover:bg-stone-50 transition-all duration-200">
+                            Voir les services
+                        </a>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-6 text-sm text-stone-500 font-medium">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Service à distance
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Dossiers conformes
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Expertise construction
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative lg:ml-10 mt-8 lg:mt-0">
+                    <div class="absolute inset-0 bg-rose-100 transform translate-x-4 translate-y-4 lg:translate-x-8 lg:translate-y-8 rounded-xl -z-10"></div>
+                    
+                    <div class="relative rounded-xl overflow-hidden shadow-2xl bg-white border border-stone-100">
+                        <img src="banneremilie.png" alt="Émilie Roy - Tenue de livres" class="w-full h-auto object-cover aspect-[4/3] lg:aspect-[3/4]">
+                    </div>
+
+                    <div class="absolute -bottom-6 -left-6 sm:bottom-8 sm:-left-12 bg-white p-6 rounded-xl shadow-xl border border-stone-100 flex items-center gap-4 z-20">
+                        <div class="flex-shrink-0 w-12 h-12 bg-rose-50 text-rose-500 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <div>
+                            <p class="font-bold text-stone-900 text-lg">Prêt pour l'impôt</p>
+                            <p class="text-sm text-stone-500 font-light">Rapports clairs & précis</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+<section id="services" class="py-24 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:justify-between md:items-end mb-16 lg:mb-24 gap-8">
+                <div class="max-w-2xl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="h-[1px] w-8 bg-rose-400"></div>
+                        <span class="text-stone-500 font-medium tracking-widest uppercase text-xs">Champs d'expertise</span>
+                    </div>
+                    <h2 class="font-serif text-4xl md:text-5xl text-stone-900 leading-tight">
+                        Expertise & <span class="italic text-rose-400">Services</span>
+                    </h2>
+                </div>
+                <div class="max-w-md md:text-right">
+                    <p class="text-stone-600 font-light text-lg mb-6 text-left md:text-right">
+                        Un accompagnement professionnel rigoureux, adapté à vos besoins spécifiques et spécialisé dans les défis de votre industrie.
+                    </p>
+                    <a href="#contact" class="group inline-flex items-center justify-start md:justify-end gap-2 text-stone-900 font-medium tracking-widest uppercase text-xs hover:text-rose-400 transition-colors">
+                        Demander une soumission
+                        <span class="block transform transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-stone-200">
+                
+                <div class="group border-b border-r border-stone-200 p-8 lg:p-12 hover:bg-stone-50 transition-all duration-500 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-rose-400 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+                    
+                    <span class="text-stone-200 group-hover:text-rose-200 font-serif text-5xl lg:text-6xl block mb-8 italic transition-colors duration-500">01</span>
+                    <h3 class="text-2xl font-serif text-stone-900 mb-4">Tenue de livre complète</h3>
+                    <p class="text-stone-600 font-light leading-relaxed">Prise en charge intégrale de votre comptabilité au quotidien pour maintenir vos dossiers à jour, structurés et impeccables.</p>
+                </div>
+
+                <div class="group border-b border-r border-stone-200 p-8 lg:p-12 hover:bg-stone-50 transition-all duration-500 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-rose-400 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+                    
+                    <span class="text-stone-200 group-hover:text-rose-200 font-serif text-5xl lg:text-6xl block mb-8 italic transition-colors duration-500">02</span>
+                    <h3 class="text-2xl font-serif text-stone-900 mb-4">Conciliation bancaire</h3>
+                    <p class="text-stone-600 font-light leading-relaxed">Suivi rigoureux et minutieux de vos transactions pour assurer l'exactitude parfaite de vos relevés et de vos soldes financiers.</p>
+                </div>
+
+                <div class="group border-b border-r border-stone-200 p-8 lg:p-12 hover:bg-stone-50 transition-all duration-500 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-rose-400 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+                    
+                    <span class="text-stone-200 group-hover:text-rose-200 font-serif text-5xl lg:text-6xl block mb-8 italic transition-colors duration-500">03</span>
+                    <h3 class="text-2xl font-serif text-stone-900 mb-4">Comptes clients & fournisseurs</h3>
+                    <p class="text-stone-600 font-light leading-relaxed">Gestion proactive de vos factures et paiements pour sécuriser, analyser et optimiser le flux de trésorerie de votre entreprise.</p>
+                </div>
+
+                <div class="group border-b border-r border-stone-200 p-8 lg:p-12 hover:bg-stone-50 transition-all duration-500 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-rose-400 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+                    
+                    <span class="text-stone-200 group-hover:text-rose-200 font-serif text-5xl lg:text-6xl block mb-8 italic transition-colors duration-500">04</span>
+                    <h3 class="text-2xl font-serif text-stone-900 mb-4">Rapports financiers</h3>
+                    <p class="text-stone-600 font-light leading-relaxed">Production de rapports périodiques clairs et détaillés, vous offrant une vision nette pour prendre des décisions d'affaires éclairées.</p>
+                </div>
+
+                <div class="group border-b border-r border-stone-200 p-8 lg:p-12 hover:bg-stone-50 transition-all duration-500 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-rose-400 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+                    
+                    <span class="text-stone-200 group-hover:text-rose-200 font-serif text-5xl lg:text-6xl block mb-8 italic transition-colors duration-500">05</span>
+                    <h3 class="text-2xl font-serif text-stone-900 mb-4">Préparation pour le comptable</h3>
+                    <p class="text-stone-600 font-light leading-relaxed">Assemblage méticuleux et préparation exhaustive de vos documents pour faciliter et accélérer le travail de votre CPA en fin d'année.</p>
+                </div>
+
+                <div class="group border-b border-r border-stone-200 p-8 lg:p-12 hover:bg-rose-50/50 transition-all duration-500 relative overflow-hidden bg-stone-50/30">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-rose-400 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+                    
+                    <span class="text-rose-200 group-hover:text-rose-300 font-serif text-5xl lg:text-6xl block mb-8 italic transition-colors duration-500">06</span>
+                    <h3 class="text-2xl font-serif text-rose-900 mb-4">Secteur de la construction</h3>
+                    <p class="text-stone-600 font-light leading-relaxed">Excellente connaissance des normes CCQ, des dénonciations, des quittances et des particularités uniques du domaine de la construction.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+<section id="a-propos" class="py-24 bg-stone-900 text-stone-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <svg class="w-12 h-12 mx-auto text-rose-400 mb-8 opacity-80" fill="currentColor" viewBox="0 0 32 32">
+            <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+        </svg>
+        <h2 class="font-serif text-3xl md:text-5xl leading-relaxed mb-10 font-light">
+            "Mon objectif est de vous décharger du fardeau administratif pour que vous puissiez vous concentrer sur ce que vous faites de mieux."
+        </h2>
+        <div class="flex items-center justify-center">
+            <div class="w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-rose-200">
+                <img src="banneremilie.png" alt="Émilie Roy" class="w-full h-full object-cover">
+            </div>
+            <div class="text-left">
+                <p class="font-medium text-lg uppercase tracking-wide">Émilie Roy</p>
+                <p class="text-stone-400 font-light">Fondatrice, Services ER</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="avantages" class="py-24 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="font-serif text-4xl text-stone-900 mb-8">Modalités & Fonctionnement</h2>
+                    <div class="space-y-8 font-light text-stone-600 text-lg">
+                        <p>
+                            <strong class="text-stone-900 font-medium">Horaires & Disponibilités :</strong><br>
+                            Veuillez prendre note que mon horaire est actuellement complété pour des journées complètes. Cependant, je suis disponible pour des mandats de <em>quelques heures par mois</em> ou un <em>suivi régulier</em> à temps partiel. Je m'adapte à la charge de travail dont vous avez besoin.
+                        </p>
+                        <p>
+                            <strong class="text-stone-900 font-medium">Localisation :</strong><br>
+                            J'offre mes services <strong>entièrement à distance</strong> pour vous accommoder, peu importe où vous êtes au Québec. Des rencontres en <strong>présentiel en Estrie</strong> sont également possibles si vous préférez une approche plus locale.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="border-l border-stone-200 pl-8 lg:pl-16">
+                    <div class="mb-12 relative">
+                        <span class="absolute -left-[33px] lg:-left-[65px] top-1 w-2 h-2 rounded-full bg-rose-400"></span>
+                        <h4 class="text-xl font-serif text-stone-900 mb-2">Flexibilité absolue</h4>
+                        <p class="text-stone-600 font-light">Je m'ajuste à votre volume transactionnel, sans engagement de temps plein.</p>
+                    </div>
+                    <div class="mb-12 relative">
+                        <span class="absolute -left-[33px] lg:-left-[65px] top-1 w-2 h-2 rounded-full bg-rose-400"></span>
+                        <h4 class="text-xl font-serif text-stone-900 mb-2">Tranquillité d'esprit</h4>
+                        <p class="text-stone-600 font-light">Vos dossiers sont tenus rigoureusement à jour, prêts pour la saison des impôts.</p>
+                    </div>
+                    <div class="relative">
+                        <span class="absolute -left-[33px] lg:-left-[65px] top-1 w-2 h-2 rounded-full bg-rose-400"></span>
+                        <h4 class="text-xl font-serif text-stone-900 mb-2">Approche humaine</h4>
+                        <p class="text-stone-600 font-light">Un contact direct, honnête et sans jargon complexe pour vous aider à comprendre vos finances.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<section id="temoignages" class="py-24 lg:py-32 bg-stone-50 border-t border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col items-center text-center mb-16 lg:mb-20">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="h-[1px] w-8 bg-rose-400"></div>
+                    <span class="text-stone-500 font-medium tracking-widest uppercase text-xs">Mots de nos clients</span>
+                    <div class="h-[1px] w-8 bg-rose-400"></div>
+                </div>
+                <h2 class="font-serif text-4xl md:text-5xl text-stone-900 leading-tight max-w-2xl">
+                    Une relation bâtie sur la <br><span class="italic text-rose-400">confiance</span> et la rigueur.
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 auto-rows-min">
+                
+                <div class="relative bg-white p-10 lg:p-12 shadow-sm border border-stone-100 rounded-2xl flex flex-col justify-between group hover:shadow-xl transition-all duration-500 md:col-span-2 lg:col-span-2">
+                    <span class="absolute top-6 left-8 font-serif text-8xl text-stone-50 leading-none select-none z-0 transition-colors duration-500 group-hover:text-rose-50">"</span>
+                    
+                    <div class="relative z-10 mb-8 lg:pr-12">
+                        <p class="text-stone-600 font-light leading-relaxed text-lg mb-4">
+                            <span class="font-medium text-stone-900">Chez Jackson Ranch Elk Outfitters</span>, nous souhaitons mettre en lumière la qualité remarquable des services de comptabilité offerts par Les Services ER. En plus de son grand professionnalisme et de sa rigueur, elle se distingue par son positivisme au quotidien, qui apporte une belle énergie au sein des bureaux. Son attitude proactive et agréable contribue à créer un environnement de travail efficace et harmonieux.
+                        </p>
+                        <p class="text-stone-600 font-light leading-relaxed">
+                            Son sens de l’organisation et de la structuration est également un atout majeur. Elle sait mettre en place des méthodes claires et efficaces. C’est une personne de confiance, fiable et engagée. Nous recommandons Les Services ER sans hésitation.
+                        </p>
+                    </div>
+                    
+                    <div class="relative z-10 border-t border-stone-100 pt-6 flex items-center gap-4 mt-auto">
+                        <div class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center text-stone-500 font-serif font-bold">J</div>
+                        <p class="font-serif text-lg text-stone-900 tracking-wide">Jackson Ranch Elk Outfitters</p>
+                    </div>
+                </div>
+
+                <div class="relative bg-stone-900 p-10 lg:p-12 shadow-sm border border-stone-800 rounded-2xl flex flex-col justify-between group hover:shadow-xl hover:-translate-y-1 transition-all duration-500 md:col-span-1 lg:col-span-1">
+                    <span class="absolute top-6 left-8 font-serif text-8xl text-stone-800 leading-none select-none z-0 transition-colors duration-500 group-hover:text-rose-900/50">"</span>
+                    
+                    <div class="relative z-10 mb-8">
+                        <p class="text-stone-300 font-light leading-relaxed text-lg">
+                            Émilie m’accompagne depuis le tout début avec ma tenue de livre. Chaque mois elle s’occupe de faire le suivi rigoureusement avec moi. Service professionnel, minutieux. Une personne de confiance.
+                        </p>
+                    </div>
+                    
+                    <div class="relative z-10 border-t border-stone-700 pt-6 flex items-center gap-4 mt-auto">
+                        <div class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center text-rose-400 font-serif font-bold">I</div>
+                        <p class="font-serif text-lg text-white tracking-wide">ISOROY</p>
+                    </div>
+                </div>
+
+                <div class="relative bg-rose-50 p-10 lg:p-12 shadow-sm border border-rose-100 rounded-2xl flex flex-col items-center justify-center text-center h-full group hover:shadow-md transition-all duration-500 md:col-span-1 lg:col-span-1">
+                    <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-6 text-rose-400 shadow-sm">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-2xl text-stone-900 mb-3">Votre avis compte</h3>
+                    <p class="text-stone-600 font-light mb-8">Vous êtes satisfait de nos services ? Partagez votre expérience avec nous.</p>
+                    <a href="mailto:info@emilieroy.ca?subject=Mon témoignage" class="inline-flex items-center gap-2 font-medium text-rose-500 hover:text-stone-900 transition-colors uppercase tracking-widest text-xs border-b border-rose-200 hover:border-stone-900 pb-1">
+                        Rédiger un mot <span class="transform transition-transform group-hover:translate-x-1">&rarr;</span>
+                    </a>
+                </div>
+
+                <div class="relative bg-white p-10 lg:p-12 shadow-sm border border-stone-100 rounded-2xl flex flex-col justify-between group hover:shadow-xl transition-all duration-500 md:col-span-2 lg:col-span-2">
+                    <span class="absolute top-6 left-8 font-serif text-8xl text-stone-50 leading-none select-none z-0 transition-colors duration-500 group-hover:text-rose-50">"</span>
+                    
+                    <div class="relative z-10 mb-8 lg:pr-12">
+                        <p class="text-stone-600 font-light leading-relaxed text-lg mb-4">
+                            Je tiens à exprimer toute ma reconnaissance envers <span class="font-medium text-stone-900">Émilie Roy</span> pour la qualité de son travail en comptabilité. Depuis que je fais appel à ses services, j’ai pu constater son grand professionnalisme, sa rigueur et son souci du détail. Elle prend le temps de bien expliquer chaque étape, ce qui rend des sujets parfois complexes beaucoup plus accessibles et rassurants.
+                        </p>
+                        <p class="text-stone-600 font-light leading-relaxed">
+                            Sa disponibilité et sa capacité à s’adapter à mes besoins ont fait une réelle différence dans la gestion de mes finances. Grâce à Émilie, je me sens en confiance et bien accompagnée. Je recommande ses services sans hésitation à toute personne à la recherche d’une comptable compétente et humaine. Un grand merci pour ton excellent travail.
+                        </p>
+                    </div>
+                    
+                    <div class="relative z-10 border-t border-stone-100 pt-6 flex flex-col gap-1 mt-auto">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center text-stone-500 font-serif font-bold">J</div>
+                            <p class="font-serif text-lg text-stone-900 tracking-wide">Josée Mcduff</p>
+                        </div>
+                        <p class="text-stone-500 font-light text-sm pl-14">Entretien Ménager</p>
+                    </div>
+                </div>
+
+                <div class="relative bg-white p-10 lg:p-12 shadow-sm border border-stone-100 rounded-2xl flex flex-col justify-between group hover:shadow-xl transition-all duration-500 md:col-span-2 lg:col-span-2">
+                    <span class="absolute top-6 left-8 font-serif text-8xl text-stone-50 leading-none select-none z-0 transition-colors duration-500 group-hover:text-rose-50">"</span>
+                    
+                    <div class="relative z-10 mb-8 lg:pr-12">
+                        <p class="text-stone-600 font-light leading-relaxed text-lg mb-4">
+                            Toute l’équipe de <span class="font-medium text-stone-900">Gypse de l’Estrie</span> souhaite exprimer son entière satisfaction à l’égard des services de comptabilité offerts par Les Services ER. Depuis le début de notre collaboration, nous bénéficions d’un service exemplaire, marqué par un grand professionnalisme, une rigueur constante et une organisation irréprochable.
+                        </p>
+                        <p class="text-stone-600 font-light leading-relaxed">
+                            Les Services ER se distinguent également par leur fiabilité et intégrité. Il s’agit d’une personne de confiance sur qui nous pouvons compter en tout temps. Sa disponibilité, son souci du détail et son engagement envers la qualité font toute la différence. Nous la recommandons sans aucune hésitation.
+                        </p>
+                    </div>
+                    
+                    <div class="relative z-10 border-t border-stone-100 pt-6 flex items-center gap-4 mt-auto">
+                        <div class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center text-stone-500 font-serif font-bold">G</div>
+                        <p class="font-serif text-lg text-stone-900 tracking-wide">Gypse de l’Estrie</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+ <section id="contact" class="py-24 bg-white border-t border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                
+                <div>
+                    <h2 class="font-serif text-4xl text-stone-900 mb-6">Travaillons ensemble</h2>
+                    <p class="text-stone-600 font-light text-lg mb-12">
+                        Écrivez-moi pour discuter de votre situation. Que ce soit pour une évaluation de vos besoins ou pour démarrer un mandat, il me fera plaisir de vous répondre rapidement.
+                    </p>
+
+                    <div class="space-y-6 text-stone-900">
+                        <div class="flex items-center group">
+                            <svg class="w-5 h-5 text-rose-400 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <a href="mailto:info@emilieroy.ca" class="font-medium group-hover:text-rose-400 transition-colors">info@emilieroy.ca</a>
+                        </div>
+                        
+                        <div class="flex items-center group">
+                            <svg class="w-5 h-5 text-rose-400 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            <a href="tel:+18195710613" class="font-medium tracking-wide group-hover:text-rose-400 transition-colors">819-571-0613</a>
+                        </div>
+
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-rose-400 mr-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span class="font-medium">Estrie, QC</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <form action="https://formspree.io/f/xykbjnda" method="POST" class="space-y-8">
+                        <div>
+                            <label for="name" class="block text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">Votre nom</label>
+                            <input type="text" id="name" name="name" required class="w-full bg-transparent border-b border-stone-300 py-3 text-stone-900 focus:outline-none focus:border-rose-400 transition-colors rounded-none placeholder-stone-300 font-light" placeholder="Jean Dupont">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">Courriel</label>
+                            <input type="email" id="email" name="email" required class="w-full bg-transparent border-b border-stone-300 py-3 text-stone-900 focus:outline-none focus:border-rose-400 transition-colors rounded-none placeholder-stone-300 font-light" placeholder="jean@entreprise.com">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">Votre situation</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full bg-transparent border-b border-stone-300 py-3 text-stone-900 focus:outline-none focus:border-rose-400 transition-colors rounded-none placeholder-stone-300 font-light resize-none" placeholder="Parlez-moi de votre entreprise et de vos besoins en tenue de livres..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full md:w-auto px-10 py-4 bg-stone-900 text-white text-sm font-medium uppercase tracking-wide hover:bg-rose-400 transition-colors duration-300">
+                            Envoyer le message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <footer class="bg-stone-900 pt-16 pb-8 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                <div class="mb-8 md:mb-0">
+                    <a href="#">
+                        <img src="serviceser.svg" alt="Services ER" class="h-40 w-auto brightness-0 invert opacity-90 hover:opacity-100 transition-opacity">
+                    </a>
+                </div>
+                <div class="flex flex-wrap justify-center gap-8 text-sm uppercase tracking-wider font-medium text-stone-400">
+                    <a href="#services" class="hover:text-rose-400 transition-colors">Services</a>
+                    <a href="#a-propos" class="hover:text-rose-400 transition-colors">À propos</a>
+                    <a href="#temoignages" class="hover:text-rose-400 transition-colors">Témoignages</a>
+                    <a href="#contact" class="hover:text-rose-400 transition-colors">Contact</a>
+                </div>
+            </div>
+            
+            <div class="border-t border-stone-800 pt-8 flex flex-col lg:flex-row justify-between items-center text-stone-500 text-sm font-light gap-4 lg:gap-0 text-center lg:text-left">
+                <p>2026 © Services ER. Tous droits réservés.</p>
+                
+                <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
+                    <p>Tenue de livres pour PME et travailleurs autonomes.</p>
+                    <span class="hidden sm:block text-stone-700">|</span>
+                    <a href="#" class="hover:text-rose-400 transition-colors underline decoration-stone-700 underline-offset-4">Politique de confidentialité</a>
+                </div>
+
+                <p class="mt-4 lg:mt-0">
+                    Conception web par <a href="https://roymarketing.ca" target="_blank" rel="noopener noreferrer" class="text-stone-300 font-medium hover:text-rose-400 transition-colors">Roy Marketing</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
