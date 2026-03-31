@@ -440,6 +440,7 @@
 
                 <div>
                     <form action="https://formspree.io/f/xykbjnda" method="POST" class="space-y-8">
+                        <input type="hidden" name="_next" value="merci.html">
                         <div>
                             <label for="name" class="block text-xs font-bold text-stone-400 uppercase tracking-widest mb-2">Votre nom</label>
                             <input type="text" id="name" name="name" required class="w-full bg-transparent border-b border-stone-300 py-3 text-stone-900 focus:outline-none focus:border-rose-400 transition-colors rounded-none placeholder-stone-300 font-light" placeholder="Jean Dupont">
@@ -486,7 +487,7 @@
                 <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
                     <p>Tenue de livres pour PME et travailleurs autonomes.</p>
                     <span class="hidden sm:block text-stone-700">|</span>
-                    <a href="#" class="hover:text-rose-400 transition-colors underline decoration-stone-700 underline-offset-4">Politique de confidentialité</a>
+                    <a href="politique-de-confidentialite.html" class="hover:text-rose-400 transition-colors underline decoration-stone-700 underline-offset-4">Politique de confidentialité</a>
                 </div>
 
                 <p class="mt-4 lg:mt-0">
@@ -495,6 +496,64 @@
             </div>
         </div>
     </footer>
+
+    <div id="cookie-consent" class="fixed bottom-0 inset-x-0 z-[60] hidden">
+        <div class="bg-stone-900/95 backdrop-blur-md border-t border-stone-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <p class="text-stone-200 text-sm font-light leading-relaxed">
+                        Ce site utilise des cookies essentiels pour assurer son bon fonctionnement. Pour en savoir plus, consultez la
+                        <a href="politique-de-confidentialite.html" class="text-stone-50 underline decoration-stone-600 underline-offset-4 hover:text-rose-300 transition-colors">politique de confidentialité</a>.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <button id="cookie-consent-accept" class="px-6 py-2.5 bg-rose-400 text-white text-xs font-medium tracking-widest uppercase hover:bg-rose-500 transition-colors">
+                            Accepter
+                        </button>
+                        <button id="cookie-consent-close" class="px-6 py-2.5 bg-transparent text-stone-200 text-xs font-medium tracking-widest uppercase border border-stone-700 hover:border-stone-500 hover:text-white transition-colors">
+                            Fermer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            const KEY = 'serviceser_cookie_consent_v1';
+            const banner = document.getElementById('cookie-consent');
+            const acceptBtn = document.getElementById('cookie-consent-accept');
+            const closeBtn = document.getElementById('cookie-consent-close');
+
+            if (!banner || !acceptBtn || !closeBtn) return;
+
+            function hide() {
+                banner.classList.add('hidden');
+            }
+
+            function show() {
+                banner.classList.remove('hidden');
+            }
+
+            try {
+                const saved = localStorage.getItem(KEY);
+                if (!saved) show();
+            } catch (_) {
+                show();
+            }
+
+            acceptBtn.addEventListener('click', function () {
+                try {
+                    localStorage.setItem(KEY, 'accepted');
+                } catch (_) {}
+                hide();
+            });
+
+            closeBtn.addEventListener('click', function () {
+                hide();
+            });
+        })();
+    </script>
 
 </body>
 </html>
